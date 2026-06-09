@@ -1,0 +1,42 @@
+# Python
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+
+venv/
+env/
+.venv/
+
+# VS Code
+
+.vscode/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# OS Files
+
+.DS_Store
+Thumbs.db
+
+# Logs
+
+*.log
+
+# Streamlit Cache
+
+.streamlit/secrets.toml
+
+# Large Temporary Files
+
+temp/
+cache/
+
+# Generated Files (optional)
+
+processed_jobs.csv
