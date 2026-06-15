@@ -2,12 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from skill_extractor import extract_skills
-
-
-# -------------------------------
-# Hiring Recommendation
-# -------------------------------
+from utils.skill_extractor import extract_skills
 
 def get_recommendation(score):
 
@@ -21,11 +16,6 @@ def get_recommendation(score):
         return "Consider for Review"
 
     return "Not Recommended"
-
-
-# -------------------------------
-# Resume Category Bonus
-# -------------------------------
 
 def category_bonus(resume_category, job_description):
 
@@ -69,11 +59,6 @@ def category_bonus(resume_category, job_description):
                     return 15
 
     return 0
-
-
-# -------------------------------
-# Main Analysis Function
-# -------------------------------
 
 def analyze_resume(
     resume_text,
@@ -169,11 +154,6 @@ def analyze_resume(
         "recommendation": recommendation
     }
 
-
-# -------------------------------
-# Candidate Ranking
-# -------------------------------
-
 def rank_candidates(
     resumes_df,
     job_description
@@ -214,11 +194,6 @@ def rank_candidates(
     return ranked.reset_index(
         drop=True
     )
-
-
-# -------------------------------
-# Testing
-# -------------------------------
 
 if __name__ == "__main__":
 

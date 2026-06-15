@@ -1,10 +1,6 @@
 import pandas as pd
 import re
 
-# ==========================================
-# TEXT CLEANING FUNCTION
-# ==========================================
-
 def clean_text(text):
 
     text = str(text).lower()
@@ -17,11 +13,6 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text)
 
     return text.strip()
-
-
-# ==========================================
-# LOAD RESUME DATASET
-# ==========================================
 
 df = pd.read_csv("resumes.csv")
 

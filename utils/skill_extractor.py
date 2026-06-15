@@ -1,9 +1,5 @@
 import re
 
-# =====================================================
-# MASTER SKILL DATABASE
-# =====================================================
-
 SKILLS_DB = [
 
     # Programming Languages
@@ -105,11 +101,6 @@ SKILLS_DB = [
     "critical thinking"
 ]
 
-
-# =====================================================
-# CLEAN TEXT
-# =====================================================
-
 def clean_text(text):
 
     text = str(text).lower()
@@ -119,11 +110,6 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text)
 
     return text.strip()
-
-
-# =====================================================
-# EXTRACT SKILLS
-# =====================================================
 
 def extract_skills(text):
 
@@ -139,11 +125,6 @@ def extract_skills(text):
             found_skills.add(skill)
 
     return sorted(list(found_skills))
-
-
-# =====================================================
-# SKILL MATCH %
-# =====================================================
 
 def calculate_skill_match(
     resume_skills,
@@ -164,11 +145,6 @@ def calculate_skill_match(
 
     return round(score, 2)
 
-
-# =====================================================
-# MISSING SKILLS
-# =====================================================
-
 def get_missing_skills(
     resume_skills,
     job_skills
@@ -180,11 +156,6 @@ def get_missing_skills(
             - set(resume_skills)
         )
     )
-
-
-# =====================================================
-# MATCHED SKILLS
-# =====================================================
 
 def get_matched_skills(
     resume_skills,
@@ -199,11 +170,6 @@ def get_matched_skills(
             )
         )
     )
-
-
-# =====================================================
-# TEST
-# =====================================================
 
 if __name__ == "__main__":
 

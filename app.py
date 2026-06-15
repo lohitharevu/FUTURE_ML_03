@@ -5,19 +5,11 @@ import plotly.express as px
 from utils.predict import analyze_resume
 from utils.candidate_ranker import rank_candidates
 
-# ==================================================
-# PAGE CONFIG
-# ==================================================
-
 st.set_page_config(
     page_title="TalentMatch AI",
     page_icon="🎯",
     layout="wide"
 )
-
-# ==================================================
-# CUSTOM CSS
-# ==================================================
 
 st.markdown("""
 <style>
@@ -41,10 +33,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ==================================================
-# HEADER
-# ==================================================
-
 st.title("🎯 TalentMatch AI")
 
 st.caption(
@@ -52,10 +40,6 @@ st.caption(
 )
 
 st.divider()
-
-# ==================================================
-# SIDEBAR
-# ==================================================
 
 st.sidebar.title("Navigation")
 
@@ -68,10 +52,6 @@ page = st.sidebar.radio(
         "Candidate Ranking"
     ]
 )
-
-# ==================================================
-# RESUME ANALYZER
-# ==================================================
 
 if page == "Resume Analyzer":
 
@@ -130,10 +110,6 @@ Docker and TensorFlow.
                 "Analysis Completed"
             )
 
-            # ==========================
-            # KPI CARDS
-            # ==========================
-
             c1, c2, c3 = st.columns(3)
 
             c1.metric(
@@ -152,10 +128,6 @@ Docker and TensorFlow.
             )
 
             st.divider()
-
-            # ==========================
-            # SKILLS
-            # ==========================
 
             left, right = st.columns(2)
 
@@ -201,10 +173,6 @@ Docker and TensorFlow.
 
             st.divider()
 
-            # ==========================
-            # PIE CHART
-            # ==========================
-
             matched = len(
                 result["matched_skills"]
             )
@@ -241,10 +209,6 @@ Docker and TensorFlow.
                 fig,
                 use_container_width=True
             )
-
-# ==================================================
-# CANDIDATE RANKING
-# ==================================================
 
 elif page == "Candidate Ranking":
 
@@ -342,10 +306,6 @@ Recommendation: {best['Recommendation']}
 """
             )
 
-# ==================================================
-# MODEL INFORMATION
-# ==================================================
-
 st.divider()
 
 st.markdown("""
@@ -383,10 +343,6 @@ and rank candidates based on similarity and skill matching.
 
 ---
 """)
-
-# ==================================================
-# FOOTER
-# ==================================================
 
 st.caption(
     "TalentMatch AI • Resume Screening • Candidate Ranking • Skill Gap Analysis • Powered by Machine Learning & NLP"

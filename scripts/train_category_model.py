@@ -9,10 +9,6 @@ from sklearn.metrics import (
     classification_report
 )
 
-# ==========================================
-# LOAD DATA
-# ==========================================
-
 df = pd.read_csv("resumes.csv")
 
 # Keep only required columns
@@ -23,16 +19,8 @@ df = df.dropna()
 
 print("Dataset Shape:", df.shape)
 
-# ==========================================
-# FEATURES & TARGET
-# ==========================================
-
 X = df["Resume_str"]
 y = df["Category"]
-
-# ==========================================
-# TF-IDF VECTORIZATION
-# ==========================================
 
 vectorizer = TfidfVectorizer(
     stop_words="english",
@@ -42,10 +30,6 @@ vectorizer = TfidfVectorizer(
 
 X_vectorized = vectorizer.fit_transform(X)
 
-# ==========================================
-# TRAIN TEST SPLIT
-# ==========================================
-
 X_train, X_test, y_train, y_test = train_test_split(
     X_vectorized,
     y,
@@ -53,10 +37,6 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42,
     stratify=y
 )
-
-# ==========================================
-# MODEL
-# ==========================================
 
 model = LogisticRegression(
     max_iter=2000,
@@ -66,10 +46,6 @@ model = LogisticRegression(
 print("\nTraining model...\n")
 
 model.fit(X_train, y_train)
-
-# ==========================================
-# EVALUATION
-# ==========================================
 
 y_pred = model.predict(X_test)
 
@@ -92,10 +68,6 @@ print(
         y_pred
     )
 )
-
-# ==========================================
-# SAVE MODEL
-# ==========================================
 
 joblib.dump(
     model,

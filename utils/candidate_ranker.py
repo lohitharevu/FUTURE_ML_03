@@ -2,29 +2,17 @@ import pandas as pd
 import joblib
 
 from sklearn.metrics.pairwise import cosine_similarity
-
-
-# ==========================================
-# LOAD MODELS & DATA
-# ==========================================
-
 resume_encoder = joblib.load(
-    "resume_encoder.pkl"
+    "models/resume_encoder.pkl"
 )
 
 resume_vectors = joblib.load(
-    "resume_vectors.pkl"
+    "models/resume_vectors.pkl"
 )
 
 resumes_df = pd.read_csv(
-    "processed_resumes.csv"
+    "data/processed_resumes.csv"
 )
-
-
-# ==========================================
-# RECOMMENDATION ENGINE
-# ==========================================
-
 def get_recommendation(score):
 
     if score >= 85:
@@ -38,11 +26,6 @@ def get_recommendation(score):
 
     else:
         return "Not Recommended"
-
-
-# ==========================================
-# RANK CANDIDATES
-# ==========================================
 
 def rank_candidates(
     job_description,
@@ -103,11 +86,6 @@ def rank_candidates(
 
     return ranking_df.head(top_n)
 
-
-# ==========================================
-# TOP CANDIDATE DETAILS
-# ==========================================
-
 def get_best_candidate(
     job_description
 ):
@@ -118,11 +96,6 @@ def get_best_candidate(
     )
 
     return ranking.iloc[0]
-
-
-# ==========================================
-# TESTING
-# ==========================================
 
 if __name__ == "__main__":
 
